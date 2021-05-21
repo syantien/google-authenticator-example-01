@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="text-center py-3">
+
+    <div class="row">
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-4">
+            <img src="@ViewData["qrCodeImageUrl"]" style="width:100%;" />
+
+            <div class="py-2 text-center">
+                @ViewData["manualEntrySetupCode"]
+            </div>
+
+            <form method="post" action="/Authenticate">
+                @Html.AntiForgeryToken()
+                <div class="py-2 input-group">
+                    <input type="text" class="form-control" name="code" />
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary">Validate</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+   
+</div>
